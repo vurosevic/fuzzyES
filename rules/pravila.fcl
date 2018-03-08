@@ -1,0 +1,1000 @@
+FUNCTION_BLOCK blok1
+
+VAR_INPUT
+	kondicija : REAL;
+	snaga : REAL;
+	ruke : REAL;
+	noge : REAL;
+	laktovi : REAL;
+	kolena : REAL;
+	starost : REAL;
+	poluge : REAL;
+	bacanja : REAL;
+	parter : REAL;
+	sport : REAL;
+	oruzje : REAL;
+END_VAR
+
+VAR_OUTPUT
+	wing_tsun : REAL;
+	karate : REAL;
+	tekvondo : REAL;
+	boks : REAL;
+	kikboks : REAL;
+	taiboks : REAL;
+	escrima : REAL;
+	judo : REAL;
+	mma : REAL;
+	bjj : REAL;
+	jujutsu : REAL;
+	aikido : REAL;
+	ninjutsu : REAL;
+	ne_trenirati : REAL;
+END_VAR
+
+FUZZIFY kondicija
+	TERM niska := (0,1)(2,1)(3,0);
+	TERM srednja := (2,0)(3,1)(7,1)(8,0);
+	TERM visoka := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY snaga
+	TERM mala := (0,1)(2,1)(3,0);
+	TERM srednja := (2,0)(3,1)(7,1)(8,0);
+	TERM visoka := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY ruke
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY noge
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY laktovi
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY kolena
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY starost
+	TERM veoma_mlad := (0,1)(6,1)(7,0);
+	TERM mlad := (6,0)(7,1)(11,1)(12,0);
+	TERM optimalno := (11,0)(12,1)(38,1)(40,0);
+	TERM stariji := (38,0)(40,1)(70,1);
+END_FUZZIFY
+
+FUZZIFY poluge
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY bacanja
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY parter
+	TERM nema := (0,1)(2,1)(2,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(4,0);
+	TERM zastupljeno := (2.5,0)(4,1)(7,1)(9,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY sport
+	TERM ne := (0,1)(0.5,1)(3,0);
+	TERM svejedno := (2.5,0)(3,1)(7,1)(8,0);
+	TERM da := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+FUZZIFY oruzje
+	TERM nema := (0,1)(0.5,1)(1,0);
+	TERM slabo_zastupljeno := (0.5,0)(1,1)(2,1)(3,0);
+	TERM zastupljeno := (2.5,0)(3,1)(7,1)(8,0);
+	TERM jako_zastupljeno := (7,0)(8,1)(10,1);
+END_FUZZIFY
+
+DEFUZZIFY wing_tsun    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY karate    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY tekvondo    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY boks    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY kikboks    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY taiboks    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY escrima    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY judo    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY mma    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY bjj    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY jujutsu    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY aikido    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+
+DEFUZZIFY ninjutsu    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY
+		
+DEFUZZIFY ne_trenirati    
+	TERM ne_preporucuje_se := (0,1)(0.5,1)(1,0);
+	TERM slaba_preporuka := (0.5,0)(1,1)(3,1)(4,0);
+	TERM preporuka := (3.5,0)(4,1)(7,1)(8,0);
+	TERM jaka_preporuka := (7,0)(8,1)(10,1);
+END_DEFUZZIFY			
+
+RULEBLOCK rb1
+	AND : MIN;
+	ACT : MIN;
+	ACCU : BSUM;
+	
+	RULE 1 : IF ((kondicija IS niska) OR (kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS jako_zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS jako_zastupljeno) AND 
+				(kolena IS zastupljeno) AND
+				((starost IS optimalno) OR (starost IS stariji)) AND
+				(poluge IS slabo_zastupljeno) AND
+				(bacanja IS slabo_zastupljeno) AND
+				(parter IS slabo_zastupljeno) AND
+				((sport IS ne) OR (sport IS svejedno))  AND
+				(oruzje IS zastupljeno) 				  
+			 THEN wing_tsun IS jaka_preporuka,
+			      karate IS slaba_preporuka,
+			      tekvondo IS slaba_preporuka,
+			      boks IS slaba_preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS preporuka,
+			      escrima IS preporuka,
+			      judo IS slaba_preporuka,
+			      mma IS preporuka,
+			      bjj IS slaba_preporuka,
+			      jujutsu IS preporuka,
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;			 
+
+	RULE 2 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS slabo_zastupljeno) AND 
+				(kolena IS slabo_zastupljeno) AND
+				((starost IS mlad) OR (starost IS optimalno) OR (starost IS stariji)) AND
+				(poluge IS nema) AND
+				(bacanja IS nema) AND
+				(parter IS nema) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS jaka_preporuka,
+			      tekvondo IS preporuka,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS preporuka,
+			      taiboks IS slaba_preporuka,
+			      escrima IS slaba_preporuka,
+			      judo IS slaba_preporuka,
+			      mma IS slaba_preporuka,
+			      bjj IS slaba_preporuka,
+			      jujutsu IS preporuka,
+			      aikido IS slaba_preporuka,
+			      ninjutsu IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      	
+	RULE 3 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS mala) OR (snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS slabo_zastupljeno) AND
+				(noge IS jako_zastupljeno) AND
+				(laktovi IS nema) AND 
+				(kolena IS nema) AND
+				((starost IS mlad) OR (starost IS optimalno) OR (starost IS stariji)) AND
+				(poluge IS nema) AND
+				(bacanja IS nema) AND
+				(parter IS nema) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS preporuka,
+			      tekvondo IS jaka_preporuka,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS slaba_preporuka,
+			      taiboks IS slaba_preporuka,
+			      escrima IS ne_preporucuje_se,
+			      judo IS slaba_preporuka,
+			      mma IS slaba_preporuka,
+			      bjj IS slaba_preporuka,
+			      jujutsu IS preporuka,
+			      aikido IS slaba_preporuka,
+			      ninjutsu IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;	
+			      
+	RULE 4 : IF (kondicija IS visoka) AND
+				(snaga IS visoka) AND
+				(ruke IS jako_zastupljeno) AND
+				(noge IS nema) AND
+				(laktovi IS nema) AND 
+				(kolena IS nema) AND
+				(starost IS optimalno) AND
+				(poluge IS nema) AND
+				(bacanja IS nema) AND
+				(parter IS nema) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS ne_preporucuje_se,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS jaka_preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS preporuka,
+			      escrima IS slaba_preporuka,
+			      judo IS ne_preporucuje_se,
+			      mma IS preporuka,
+			      bjj IS ne_preporucuje_se,
+			      jujutsu IS ne_preporucuje_se,
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;	
+
+	RULE 5 : IF (kondicija IS visoka) AND
+				(snaga IS visoka) AND
+				(ruke IS jako_zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS nema) AND 
+				(kolena IS slabo_zastupljeno) AND
+				(starost IS optimalno) AND
+				(poluge IS nema) AND
+				(bacanja IS nema) AND
+				(parter IS nema) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS preporuka,
+			      kikboks IS jaka_preporuka,
+			      taiboks IS preporuka,
+			      escrima IS slaba_preporuka,
+			      judo IS ne_preporucuje_se,
+			      mma IS preporuka,
+			      bjj IS ne_preporucuje_se,
+			      jujutsu IS slaba_preporuka,
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 6 : IF (kondicija IS visoka) AND
+				(snaga IS visoka) AND
+				(ruke IS jako_zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS jako_zastupljeno) AND 
+				(kolena IS zastupljeno) AND
+				(starost IS optimalno) AND
+				(poluge IS nema) AND
+				(bacanja IS nema) AND
+				(parter IS nema) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS slaba_preporuka,
+			      tekvondo IS slaba_preporuka,
+			      boks IS preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS jaka_preporuka,
+			      escrima IS slaba_preporuka,
+			      judo IS ne_preporucuje_se,
+			      mma IS preporuka,
+			      bjj IS ne_preporucuje_se,
+			      jujutsu IS slaba_preporuka,
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 7 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS jako_zastupljeno) AND
+				(noge IS slabo_zastupljeno) AND
+				(laktovi IS zastupljeno) AND 
+				(kolena IS zastupljeno) AND
+				((starost IS optimalno) OR (starost IS stariji)) AND
+				(poluge IS slabo_zastupljeno) AND
+				(bacanja IS slabo_zastupljeno) AND
+				(parter IS nema) AND
+				((sport IS ne) OR (sport IS svejedno)) AND
+				(oruzje IS jako_zastupljeno) 				  
+			 THEN wing_tsun IS preporuka,
+			      karate IS slaba_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS slaba_preporuka,
+			      kikboks IS slaba_preporuka,
+			      taiboks IS slaba_preporuka,
+			      escrima IS jaka_preporuka,
+			      judo IS ne_preporucuje_se,
+			      mma IS slaba_preporuka,
+			      bjj IS ne_preporucuje_se,
+			      jujutsu IS slaba_preporuka,
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;			      
+			 
+	RULE 8 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS nema) AND
+				(noge IS nema) AND
+				(laktovi IS nema) AND 
+				(kolena IS nema) AND
+				((starost IS mlad) OR (starost IS optimalno) OR (starost IS stariji)) AND
+				(poluge IS jako_zastupljeno) AND
+				(bacanja IS jako_zastupljeno) AND
+				(parter IS zastupljeno) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS slaba_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      escrima IS ne_preporucuje_se,
+			      judo IS jaka_preporuka,
+			      mma IS slaba_preporuka,
+			      bjj IS preporuka,
+			      jujutsu IS preporuka,
+			      aikido IS preporuka,
+			      ninjutsu IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;			 
+			 
+	RULE 9 : IF (kondicija IS visoka) AND
+				(snaga IS visoka) AND
+				(ruke IS zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS zastupljeno) AND 
+				(kolena IS zastupljeno) AND
+				(starost IS optimalno) AND
+				(poluge IS zastupljeno) AND
+				(bacanja IS zastupljeno) AND
+				(parter IS jako_zastupljeno) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS preporuka,
+			      karate IS slaba_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS preporuka,
+			      escrima IS slaba_preporuka,
+			      judo IS slaba_preporuka,
+			      mma IS jaka_preporuka,
+			      bjj IS preporuka,
+			      jujutsu IS preporuka,
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;				 
+
+	RULE 10 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS nema) AND
+				(noge IS nema) AND
+				(laktovi IS nema) AND 
+				(kolena IS nema) AND
+				((starost IS optimalno) OR (starost IS stariji)) AND 
+				(poluge IS jako_zastupljeno) AND
+				(bacanja IS slabo_zastupljeno) AND
+				(parter IS jako_zastupljeno) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS nema) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS slaba_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      escrima IS ne_preporucuje_se,
+			      judo IS preporuka,
+			      mma IS preporuka,
+			      bjj IS jaka_preporuka,
+			      jujutsu IS slaba_preporuka,
+			      aikido IS slaba_preporuka,
+			      ninjutsu IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 11 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS slabo_zastupljeno) AND 
+				(kolena IS slabo_zastupljeno) AND
+				((starost IS mlad) OR (starost IS optimalno) OR (starost IS stariji)) AND 
+				(poluge IS jako_zastupljeno) AND
+				(bacanja IS zastupljeno) AND
+				(parter IS zastupljeno) AND
+				((sport IS da) OR (sport IS svejedno)) AND
+				(oruzje IS slabo_zastupljeno) 				  
+			 THEN wing_tsun IS slaba_preporuka,
+			      karate IS preporuka,
+			      tekvondo IS slaba_preporuka,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS slaba_preporuka,
+			      taiboks IS slaba_preporuka,
+			      escrima IS slaba_preporuka,
+			      judo IS preporuka,
+			      mma IS preporuka,
+			      bjj IS slaba_preporuka,
+			      jujutsu IS jaka_preporuka,
+			      aikido IS slaba_preporuka,
+			      ninjutsu IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+
+	RULE 12 : IF ((kondicija IS niska) OR (kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS slabo_zastupljeno) AND
+				(noge IS slabo_zastupljeno) AND
+				(laktovi IS nema) AND 
+				(kolena IS nema) AND
+				((starost IS mlad) OR (starost IS optimalno) OR (starost IS stariji)) AND 
+				(poluge IS zastupljeno) AND
+				(bacanja IS zastupljeno) AND
+				(parter IS zastupljeno) AND
+				((sport IS ne) OR (sport IS svejedno)) AND
+				(oruzje IS zastupljeno) 				  
+			 THEN wing_tsun IS ne_preporucuje_se,
+			      karate IS slaba_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      escrima IS ne_preporucuje_se,
+			      judo IS preporuka,
+			      mma IS ne_preporucuje_se,
+			      bjj IS slaba_preporuka,
+			      jujutsu IS slaba_preporuka,
+			      aikido IS jaka_preporuka,
+			      ninjutsu IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 13 : IF ((kondicija IS srednja) OR (kondicija IS visoka)) AND
+				((snaga IS mala) OR (snaga IS srednja) OR (snaga IS visoka)) AND
+				(ruke IS zastupljeno) AND
+				(noge IS zastupljeno) AND
+				(laktovi IS slabo_zastupljeno) AND 
+				(kolena IS slabo_zastupljeno) AND
+				((starost IS mlad) OR (starost IS optimalno) OR (starost IS stariji)) AND 
+				(poluge IS zastupljeno) AND
+				(bacanja IS slabo_zastupljeno) AND
+				(parter IS slabo_zastupljeno) AND
+				((sport IS ne) OR (sport IS svejedno)) AND
+				(oruzje IS jako_zastupljeno) 				  
+			 THEN wing_tsun IS preporuka,
+			      karate IS preporuka,
+			      tekvondo IS slaba_preporuka,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS slaba_preporuka,
+			      taiboks IS slaba_preporuka,
+			      escrima IS preporuka,
+			      judo IS slaba_preporuka,
+			      mma IS ne_preporucuje_se,
+			      bjj IS slaba_preporuka,
+			      jujutsu IS preporuka,
+			      aikido IS slaba_preporuka,
+			      ninjutsu IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;	
+
+	RULE 14 : IF (starost IS veoma_mlad) OR 
+					((ruke IS nema) AND
+					 (noge IS nema) AND
+					 (laktovi IS nema) AND 
+				     (kolena IS nema) AND 
+				     (poluge IS nema) AND
+				     (bacanja IS nema) AND
+				     (parter IS nema) AND 
+				     (oruzje IS nema))
+			  THEN  wing_tsun IS ne_preporucuje_se,
+		 			karate IS ne_preporucuje_se,
+		 			tekvondo IS ne_preporucuje_se,
+		 			boks IS ne_preporucuje_se,
+		 			kikboks IS ne_preporucuje_se,
+		 			taiboks IS ne_preporucuje_se,
+		 			escrima IS ne_preporucuje_se,
+		 			judo IS ne_preporucuje_se,
+		 			mma IS ne_preporucuje_se,
+		 			bjj IS ne_preporucuje_se,
+		 			jujutsu IS ne_preporucuje_se,
+		 			aikido IS ne_preporucuje_se,
+		 			ninjutsu IS ne_preporucuje_se,
+		 			ne_trenirati IS jaka_preporuka;	
+		 			
+	RULE 15 : IF (ruke IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN wing_tsun IS jaka_preporuka,
+				escrima IS preporuka,
+				ninjutsu IS slaba_preporuka,
+				aikido IS ne_preporucuje_se,
+			    ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 16 : IF (ruke IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno)) 			  
+			  THEN boks IS jaka_preporuka,
+			      kikboks IS jaka_preporuka,
+			      taiboks IS jaka_preporuka,
+			      mma IS jaka_preporuka,
+			      karate IS slaba_preporuka,
+			      jujutsu IS slaba_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;			      
+
+	RULE 17 : IF (ruke IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))			  
+			  THEN wing_tsun IS preporuka,
+				escrima IS jaka_preporuka,
+				ninjutsu IS jaka_preporuka,
+				aikido IS ne_preporucuje_se,
+			    ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 18 : IF (ruke IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno))			  
+			  THEN boks IS preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS preporuka,
+			      mma IS preporuka,
+			      karate IS jaka_preporuka,
+			      jujutsu IS jaka_preporuka,
+			      tekvondo IS ne_preporucuje_se,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,			      
+			      ne_trenirati IS ne_preporucuje_se;			      
+
+
+	RULE 19 : IF (noge IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))		  
+			  THEN wing_tsun IS preporuka,
+			      escrima IS slaba_preporuka,
+			      ninjutsu IS preporuka,
+			      aikido IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			   
+	RULE 20 : IF (noge IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))		  
+			  THEN tekvondo IS jaka_preporuka,
+			      karate IS preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS preporuka,
+			      mma IS preporuka,
+			      jujutsu IS preporuka,
+			      boks IS ne_preporucuje_se,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 21 : IF (noge IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno)) 
+			  THEN wing_tsun IS jaka_preporuka,
+			      escrima IS preporuka,
+			      ninjutsu IS preporuka,
+			      aikido IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 22 : IF (noge IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno)) 
+			  THEN tekvondo IS preporuka,
+			      karate IS jaka_preporuka,
+			      kikboks IS jaka_preporuka,
+			      taiboks IS jaka_preporuka,
+			      mma IS jaka_preporuka,
+			      jujutsu IS jaka_preporuka,
+			      boks IS ne_preporucuje_se,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 23 : IF (parter IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS ne_preporucuje_se, 
+			      escrima IS ne_preporucuje_se,
+			      ninjutsu IS ne_preporucuje_se,
+			      aikido IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 24 : IF (parter IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS jaka_preporuka,
+			      jujutsu IS preporuka,
+			      boks IS ne_preporucuje_se,
+			      judo IS preporuka,
+			      bjj IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;	
+			      
+	RULE 25 : IF (parter IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS slaba_preporuka, 
+			      escrima IS ne_preporucuje_se,
+			      ninjutsu IS ne_preporucuje_se,
+			      aikido IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;			      		      
+			      
+	RULE 26 : IF (parter IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno))  
+			  THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS preporuka,
+			      jujutsu IS jaka_preporuka,
+			      judo IS jaka_preporuka,
+			      bjj IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;			      
+			      
+	RULE 27 : IF (bacanja IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))		  
+			  THEN 
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS preporuka,
+			      jujutsu IS slaba_preporuka,
+			      judo IS jaka_preporuka,
+			      bjj IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 28 : IF (bacanja IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))		  
+			  THEN
+			  	  wing_tsun IS ne_preporucuje_se, 
+			      aikido IS preporuka,
+			      ninjutsu IS ne_preporucuje_se,
+			      escrima IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;			      
+			      
+	RULE 29 : IF (bacanja IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS jaka_preporuka,
+			      jujutsu IS jaka_preporuka,
+			      judo IS preporuka,
+			      bjj IS slaba_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;			      
+
+	RULE 30 : IF (bacanja IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))	  
+			  THEN
+			  	  wing_tsun IS slaba_preporuka,
+			  	  escrima IS slaba_preporuka,
+			  	  ninjutsu IS slaba_preporuka, 
+			      aikido IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;	
+			      
+	RULE 31 : IF (oruzje IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))	  
+			  THEN
+			  	  wing_tsun IS slaba_preporuka, 
+			      aikido IS slaba_preporuka,
+			      ninjutsu IS jaka_preporuka,
+			      escrima IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 32 : IF (oruzje IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))	  
+		  	THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS ne_preporucuje_se,
+			      jujutsu IS ne_preporucuje_se,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;					      
+			     
+	RULE 33 : IF (oruzje IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno)) 			  
+			  THEN
+                  wing_tsun IS jaka_preporuka,
+			      aikido IS jaka_preporuka,
+			      ninjutsu IS preporuka,
+			      escrima IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+   RULE 34 : IF (oruzje IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno)) 			  
+		  	THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS ne_preporucuje_se,
+			      jujutsu IS slaba_preporuka,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;	
+			      
+	RULE 35 : IF (laktovi IS jako_zastupljeno)  AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS jaka_preporuka, 
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS ne_preporucuje_se,
+			      escrima IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 36 : IF (laktovi IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS jaka_preporuka,
+			      mma IS preporuka,
+			      jujutsu IS ne_preporucuje_se,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+			      
+	RULE 37 : IF (laktovi IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS preporuka, 
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS preporuka,
+			      escrima IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 38 : IF (laktovi IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS preporuka,
+			      boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS preporuka,
+			      mma IS jaka_preporuka,
+			      jujutsu IS preporuka,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;			      
+			      			      
+	RULE 39 : IF (kolena IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS preporuka, 
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS ne_preporucuje_se,
+			      escrima IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 40 : IF (kolena IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS preporuka,
+			      mma IS preporuka,
+			      jujutsu IS slaba_preporuka,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;		
+			      
+			      
+	RULE 41 : IF (kolena IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS jaka_preporuka, 
+			      aikido IS ne_preporucuje_se,
+			      ninjutsu IS slaba_preporuka,
+			      escrima IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 42 : IF (kolena IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			      tekvondo IS ne_preporucuje_se,
+			      karate IS slaba_preporuka,
+			      kikboks IS preporuka,
+			      taiboks IS jaka_preporuka,
+			      mma IS jaka_preporuka,
+			      jujutsu IS preporuka,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;	
+			      
+	RULE 43 : IF (kolena IS slabo_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS preporuka, 
+			      aikido IS preporuka,
+			      ninjutsu IS jaka_preporuka,
+			      escrima IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+
+	RULE 44 : IF (kolena IS slabo_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			      tekvondo IS preporuka,
+			      karate IS jaka_preporuka,
+			      kikboks IS jaka_preporuka,
+			      taiboks IS preporuka,
+			      mma IS preporuka,
+			      jujutsu IS jaka_preporuka,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;				      	      	      
+			      
+			      
+	RULE 45 : IF ((kondicija IS niska) OR (kondicija IS srednja)) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			  	  boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS ne_preporucuje_se;
+			      
+	RULE 46 : IF ((snaga IS mala) OR (snaga IS srednja)) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			  	  boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS ne_preporucuje_se;
+			     
+	RULE 47 : IF (poluge IS jako_zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS ne_preporucuje_se,
+			      aikido IS preporuka,
+			      ninjutsu IS preporuka,
+			      escrima IS ne_preporucuje_se;
+			      
+	RULE 48 : IF (poluge IS zastupljeno) AND ((sport IS ne) OR (sport IS svejedno))
+			  THEN
+			  	  wing_tsun IS preporuka,
+			      aikido IS jaka_preporuka,
+			      ninjutsu IS jaka_preporuka,
+			      escrima IS preporuka;			      
+			      
+    RULE 49 : IF (poluge IS jako_zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			  	  jujutsu IS jaka_preporuka,
+			  	  bjj IS jaka_preporuka,
+			      judo IS jaka_preporuka,
+			      mma IS preporuka,
+			  	  boks IS ne_preporucuje_se,
+			  	  karate IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      tekvondo IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se;
+			      
+    RULE 50 : IF (poluge IS zastupljeno) AND ((sport IS da) OR (sport IS svejedno))
+			  THEN
+			  	  jujutsu IS preporuka,
+			      judo IS preporuka,
+			      bjj IS preporuka,
+			      mma IS jaka_preporuka,
+			      karate IS ne_preporucuje_se,
+			      tekvondo IS ne_preporucuje_se,
+			  	  boks IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se;					 							      			      
+			 
+	RULE 51 : IF (noge IS nema) AND ((sport IS ne) OR (sport IS svejedno)) AND NOT (ruke IS nema AND oruzje IS nema)
+			  THEN wing_tsun IS ne_preporucuje_se,
+			      escrima IS preporuka,
+			      ninjutsu IS ne_preporucuje_se,
+			      aikido IS preporuka,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 52 : IF (noge IS nema) AND ((sport IS da) OR (sport IS svejedno)) AND NOT ruke IS nema AND (parter IS nema AND poluge IS nema)
+			  THEN tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS ne_preporucuje_se,
+			      jujutsu IS ne_preporucuje_se,
+			      boks IS jaka_preporuka,
+			      judo IS ne_preporucuje_se,
+			      bjj IS ne_preporucuje_se,
+			      ne_trenirati IS ne_preporucuje_se;
+			      
+	RULE 53 : IF (noge IS nema) AND ((sport IS da) OR (sport IS svejedno)) AND NOT (parter IS nema AND poluge IS nema) AND ruke IS nema
+			  THEN tekvondo IS ne_preporucuje_se,
+			      karate IS ne_preporucuje_se,
+			      kikboks IS ne_preporucuje_se,
+			      taiboks IS ne_preporucuje_se,
+			      mma IS ne_preporucuje_se,
+			      jujutsu IS ne_preporucuje_se,
+			      boks IS ne_preporucuje_se,
+			      judo IS jaka_preporuka,
+			      bjj IS jaka_preporuka,
+			      ne_trenirati IS ne_preporucuje_se;				      			 
+			 
+	RULE 54 : IF (snaga IS mala) AND ((sport IS ne) OR (sport IS svejedno)) AND NOT ((ruke IS nema) AND
+					 (noge IS nema) AND
+					 (laktovi IS nema) AND 
+				     (kolena IS nema) AND 
+				     (poluge IS nema) AND
+				     (bacanja IS nema) AND
+				     (parter IS nema) AND 
+				     (oruzje IS nema))
+			  THEN
+			  	  ninjutsu IS jaka_preporuka,
+			      aikido IS jaka_preporuka,
+			      escrima IS preporuka,
+			      wing_tsun IS preporuka;			 
+			 
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
