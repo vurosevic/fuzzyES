@@ -59,116 +59,164 @@ public class mainWindow {
 	private void initialize() {
 		frmFuzzyEs = new JFrame();
 		frmFuzzyEs.setTitle("Fuzzy ES - Borilacke vestine - Vladimir Urosevic 2017/3730");
-		frmFuzzyEs.setBounds(100, 100, 904, 608);
+		frmFuzzyEs.setBounds(100, 100, 904, 654);
 		frmFuzzyEs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFuzzyEs.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Kondicija:");
-		lblNewLabel.setBounds(10, 93, 103, 14);
+		lblNewLabel.setBounds(10, 36, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblNewLabel);
 		
 		JLabel lblPotrebnaSnaga = new JLabel("Snaga:");
-		lblPotrebnaSnaga.setBounds(10, 134, 103, 14);
+		lblPotrebnaSnaga.setBounds(10, 86, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblPotrebnaSnaga);
 		
 		JLabel lblUdarciRukama = new JLabel("Udarci rukama:");
-		lblUdarciRukama.setBounds(10, 175, 103, 14);
+		lblUdarciRukama.setBounds(10, 136, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciRukama);
 		
 		JLabel lblUdarciNogama = new JLabel("Udarci nogama:");
-		lblUdarciNogama.setBounds(10, 216, 103, 14);
+		lblUdarciNogama.setBounds(10, 186, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciNogama);
 		
 		JLabel lblUdarciLaktovima = new JLabel("Udarci laktovima:");
-		lblUdarciLaktovima.setBounds(10, 257, 103, 14);
+		lblUdarciLaktovima.setBounds(10, 236, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciLaktovima);
 		
 		JLabel lblUdarciKolenima = new JLabel("Udarci kolenima:");
-		lblUdarciKolenima.setBounds(10, 298, 103, 14);
+		lblUdarciKolenima.setBounds(10, 286, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciKolenima);
 		
 		JLabel lblStarostVezbaca = new JLabel("Starost vezbaca:");
-		lblStarostVezbaca.setBounds(10, 339, 103, 14);
+		lblStarostVezbaca.setBounds(10, 336, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblStarostVezbaca);
 		
 		JLabel lblPoluge = new JLabel("Poluge:");
-		lblPoluge.setBounds(10, 380, 103, 14);
+		lblPoluge.setBounds(10, 386, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblPoluge);
 		
 		JLabel lblBacanja = new JLabel("Bacanja:");
-		lblBacanja.setBounds(10, 421, 103, 14);
+		lblBacanja.setBounds(10, 436, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBacanja);
 		
 		JLabel lblBorbaUParteru = new JLabel("Borba u parteru:");
-		lblBorbaUParteru.setBounds(10, 462, 103, 14);
+		lblBorbaUParteru.setBounds(10, 486, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBorbaUParteru);
 		
 		JLabel lblBorbaSaOruzjem = new JLabel("Sportska takmicenja:");
-		lblBorbaSaOruzjem.setBounds(10, 503, 103, 14);
+		lblBorbaSaOruzjem.setBounds(10, 536, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBorbaSaOruzjem);
 		
 		JLabel lblBorbeSaOruzjem = new JLabel("Borbe sa oruzjem:");
-		lblBorbeSaOruzjem.setBounds(10, 544, 103, 14);
+		lblBorbeSaOruzjem.setBounds(10, 586, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBorbeSaOruzjem);
 		
 		JSlider slKondicija = new JSlider();
+		slKondicija.setMinorTickSpacing(5);
+		slKondicija.setPaintLabels(true);
+		slKondicija.setPaintTicks(true);
+		slKondicija.setMajorTickSpacing(10);
 		slKondicija.setValue(0);
-		slKondicija.setBounds(123, 81, 200, 26);
+		slKondicija.setBounds(123, 10, 245, 40);
 		frmFuzzyEs.getContentPane().add(slKondicija);
 		
 		JSlider slSnaga = new JSlider();
+		slSnaga.setMinorTickSpacing(5);
+		slSnaga.setPaintLabels(true);
+		slSnaga.setMajorTickSpacing(10);
+		slSnaga.setPaintTicks(true);
 		slSnaga.setValue(0);
-		slSnaga.setBounds(123, 122, 200, 26);
+		slSnaga.setBounds(123, 60, 245, 40);
 		frmFuzzyEs.getContentPane().add(slSnaga);
 		
 		JSlider slRuke = new JSlider();
+		slRuke.setMinorTickSpacing(5);
+		slRuke.setPaintTicks(true);
+		slRuke.setPaintLabels(true);
+		slRuke.setMajorTickSpacing(10);
 		slRuke.setValue(0);
-		slRuke.setBounds(123, 163, 200, 26);
+		slRuke.setBounds(123, 110, 245, 40);
 		frmFuzzyEs.getContentPane().add(slRuke);
 		
 		JSlider slNoge = new JSlider();
+		slNoge.setMinorTickSpacing(5);
+		slNoge.setMajorTickSpacing(10);
+		slNoge.setPaintLabels(true);
+		slNoge.setPaintTicks(true);
 		slNoge.setValue(0);
-		slNoge.setBounds(123, 204, 200, 26);
+		slNoge.setBounds(123, 160, 245, 40);
 		frmFuzzyEs.getContentPane().add(slNoge);
 		
 		JSlider slLaktovi = new JSlider();
+		slLaktovi.setMinorTickSpacing(5);
+		slLaktovi.setMajorTickSpacing(10);
+		slLaktovi.setPaintTicks(true);
+		slLaktovi.setPaintLabels(true);
 		slLaktovi.setValue(0);
-		slLaktovi.setBounds(123, 245, 200, 26);
+		slLaktovi.setBounds(123, 210, 245, 40);
 		frmFuzzyEs.getContentPane().add(slLaktovi);
 		
 		JSlider slKolena = new JSlider();
+		slKolena.setMinorTickSpacing(5);
+		slKolena.setMajorTickSpacing(10);
+		slKolena.setPaintTicks(true);
+		slKolena.setPaintLabels(true);
 		slKolena.setValue(0);
-		slKolena.setBounds(123, 286, 200, 26);
+		slKolena.setBounds(123, 260, 245, 40);
 		frmFuzzyEs.getContentPane().add(slKolena);
 		
 		JSlider slStarost = new JSlider();
+		slStarost.setMinorTickSpacing(5);
+		slStarost.setMajorTickSpacing(10);
+		slStarost.setPaintTicks(true);
+		slStarost.setPaintLabels(true);
 		slStarost.setValue(0);
-		slStarost.setBounds(123, 327, 200, 26);
+		slStarost.setBounds(123, 310, 245, 40);
 		frmFuzzyEs.getContentPane().add(slStarost);
 		
 		JSlider slPoluge = new JSlider();
+		slPoluge.setMinorTickSpacing(5);
+		slPoluge.setPaintTicks(true);
+		slPoluge.setPaintLabels(true);
+		slPoluge.setMajorTickSpacing(10);
 		slPoluge.setValue(0);
-		slPoluge.setBounds(123, 368, 200, 26);
+		slPoluge.setBounds(123, 360, 245, 40);
 		frmFuzzyEs.getContentPane().add(slPoluge);
 		
 		JSlider slBacanja = new JSlider();
+		slBacanja.setMinorTickSpacing(5);
+		slBacanja.setMajorTickSpacing(10);
+		slBacanja.setPaintLabels(true);
+		slBacanja.setPaintTicks(true);
 		slBacanja.setValue(0);
-		slBacanja.setBounds(123, 409, 200, 26);
+		slBacanja.setBounds(123, 410, 245, 40);
 		frmFuzzyEs.getContentPane().add(slBacanja);
 		
 		JSlider slParter = new JSlider();
+		slParter.setMinorTickSpacing(5);
+		slParter.setMajorTickSpacing(10);
+		slParter.setPaintTicks(true);
+		slParter.setPaintLabels(true);
 		slParter.setValue(0);
-		slParter.setBounds(123, 450, 200, 26);
+		slParter.setBounds(123, 460, 245, 40);
 		frmFuzzyEs.getContentPane().add(slParter);
 		
 		JSlider slTakmicenja = new JSlider();
+		slTakmicenja.setMinorTickSpacing(5);
+		slTakmicenja.setMajorTickSpacing(10);
+		slTakmicenja.setPaintTicks(true);
+		slTakmicenja.setPaintLabels(true);
 		slTakmicenja.setValue(0);
-		slTakmicenja.setBounds(123, 491, 200, 26);
+		slTakmicenja.setBounds(123, 510, 245, 40);
 		frmFuzzyEs.getContentPane().add(slTakmicenja);
 		
 		JSlider slOruzje = new JSlider();
+		slOruzje.setMinorTickSpacing(5);
+		slOruzje.setMajorTickSpacing(10);
+		slOruzje.setPaintLabels(true);
+		slOruzje.setPaintTicks(true);
 		slOruzje.setValue(0);
-		slOruzje.setBounds(123, 532, 200, 26);
+		slOruzje.setBounds(123, 560, 245, 40);
 		frmFuzzyEs.getContentPane().add(slOruzje);
 		
 
@@ -232,18 +280,6 @@ public class mainWindow {
 		});
 		btnStart.setBounds(789, 58, 89, 23);
 		frmFuzzyEs.getContentPane().add(btnStart);
-		
-		JLabel lblMin = new JLabel("min");
-		lblMin.setBounds(118, 52, 28, 14);
-		frmFuzzyEs.getContentPane().add(lblMin);
-		
-		JLabel lblMax = new JLabel("max");
-		lblMax.setBounds(313, 52, 28, 14);
-		frmFuzzyEs.getContentPane().add(lblMax);
-		
-		JLabel label = new JLabel(" |");
-		label.setBounds(224, 52, 21, 14);
-		frmFuzzyEs.getContentPane().add(label);
 		
 		
 		
