@@ -9,13 +9,22 @@ import javax.swing.JSlider;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.border.EtchedBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class mainWindow {
 
@@ -54,6 +63,7 @@ public class mainWindow {
 	}
 	
 	/**
+	 * 
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
@@ -64,51 +74,63 @@ public class mainWindow {
 		frmFuzzyEs.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Kondicija:");
-		lblNewLabel.setBounds(10, 36, 103, 14);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setBounds(10, 22, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblNewLabel);
 		
 		JLabel lblPotrebnaSnaga = new JLabel("Snaga:");
-		lblPotrebnaSnaga.setBounds(10, 86, 103, 14);
+		lblPotrebnaSnaga.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPotrebnaSnaga.setBounds(10, 72, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblPotrebnaSnaga);
 		
 		JLabel lblUdarciRukama = new JLabel("Udarci rukama:");
-		lblUdarciRukama.setBounds(10, 136, 103, 14);
+		lblUdarciRukama.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUdarciRukama.setBounds(10, 122, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciRukama);
 		
 		JLabel lblUdarciNogama = new JLabel("Udarci nogama:");
-		lblUdarciNogama.setBounds(10, 186, 103, 14);
+		lblUdarciNogama.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUdarciNogama.setBounds(10, 172, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciNogama);
 		
 		JLabel lblUdarciLaktovima = new JLabel("Udarci laktovima:");
-		lblUdarciLaktovima.setBounds(10, 236, 103, 14);
+		lblUdarciLaktovima.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUdarciLaktovima.setBounds(10, 222, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciLaktovima);
 		
 		JLabel lblUdarciKolenima = new JLabel("Udarci kolenima:");
-		lblUdarciKolenima.setBounds(10, 286, 103, 14);
+		lblUdarciKolenima.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUdarciKolenima.setBounds(10, 272, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblUdarciKolenima);
 		
 		JLabel lblStarostVezbaca = new JLabel("Starost vezbaca:");
-		lblStarostVezbaca.setBounds(10, 336, 103, 14);
+		lblStarostVezbaca.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblStarostVezbaca.setBounds(10, 322, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblStarostVezbaca);
 		
 		JLabel lblPoluge = new JLabel("Poluge:");
-		lblPoluge.setBounds(10, 386, 103, 14);
+		lblPoluge.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPoluge.setBounds(10, 372, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblPoluge);
 		
 		JLabel lblBacanja = new JLabel("Bacanja:");
-		lblBacanja.setBounds(10, 436, 103, 14);
+		lblBacanja.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblBacanja.setBounds(10, 422, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBacanja);
 		
 		JLabel lblBorbaUParteru = new JLabel("Borba u parteru:");
-		lblBorbaUParteru.setBounds(10, 486, 103, 14);
+		lblBorbaUParteru.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblBorbaUParteru.setBounds(10, 472, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBorbaUParteru);
 		
 		JLabel lblBorbaSaOruzjem = new JLabel("Sportska takmicenja:");
-		lblBorbaSaOruzjem.setBounds(10, 536, 103, 14);
+		lblBorbaSaOruzjem.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblBorbaSaOruzjem.setBounds(10, 522, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBorbaSaOruzjem);
 		
 		JLabel lblBorbeSaOruzjem = new JLabel("Borbe sa oruzjem:");
-		lblBorbeSaOruzjem.setBounds(10, 586, 103, 14);
+		lblBorbeSaOruzjem.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblBorbeSaOruzjem.setBounds(10, 572, 103, 14);
 		frmFuzzyEs.getContentPane().add(lblBorbeSaOruzjem);
 		
 		JSlider slKondicija = new JSlider();
@@ -220,15 +242,77 @@ public class mainWindow {
 		frmFuzzyEs.getContentPane().add(slOruzje);
 		
 
-		DefaultTableModel model = new DefaultTableModel();
+		DefaultTableModel model = new DefaultTableModel() {
+		    /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
 		model.addColumn("Vestina");
 		model.addColumn("Izlaz");
+
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(378, 92, 500, 466);
+		scrollPane.setBounds(378, 67, 500, 260);
 		frmFuzzyEs.getContentPane().add(scrollPane);
 		
+		JLabel lblPicture = new JLabel("");
+		lblPicture.setBounds(378, 336, 500, 264);
+		frmFuzzyEs.getContentPane().add(lblPicture);
+		
 		table = new JTable(model);
+		table.setSurrendersFocusOnKeystroke(true);
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+		    public void valueChanged(ListSelectionEvent lse) {
+		        if (!lse.getValueIsAdjusting()) {
+		            
+					switch (table.getSelectedRow())
+					{
+					case 0: lblPicture.setIcon(new ImageIcon("resources\\wt.jpg"));
+						    break;
+					case 1: lblPicture.setIcon(new ImageIcon("resources\\karate.jpg"));
+				    		break;
+					case 2: lblPicture.setIcon(new ImageIcon("resources\\tekvondo.jpg"));
+		    				break;		    				
+					case 3: lblPicture.setIcon(new ImageIcon("resources\\box.jpg"));
+				    		break;
+					case 4: lblPicture.setIcon(new ImageIcon("resources\\kikbox.jpg"));
+							break;
+					case 5: lblPicture.setIcon(new ImageIcon("resources\\mauthai.jpg"));
+							break;			
+							
+					case 6: lblPicture.setIcon(new ImageIcon("resources\\escrima.jpg"));
+				    		break;
+					case 7: lblPicture.setIcon(new ImageIcon("resources\\judo.jpg"));
+							break;
+					case 8: lblPicture.setIcon(new ImageIcon("resources\\mma.jpg"));
+    						break;		    				
+					case 9: lblPicture.setIcon(new ImageIcon("resources\\bjj.jpg"));
+		    				break;
+					case 10: lblPicture.setIcon(new ImageIcon("resources\\jujutsu.jpg"));
+							break;
+					case 11: lblPicture.setIcon(new ImageIcon("resources\\aikido.jpg"));
+							break;							
+					case 12: lblPicture.setIcon(new ImageIcon("resources\\ninjutsu.jpg"));
+							break;
+					case 13: lblPicture.setIcon(new ImageIcon("resources\\netrenirati.jpg"));
+							break;							
+		    				
+					}
+		        	
+		        }
+		    }
+		});
+		
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		scrollPane.setViewportView(table);
 		
@@ -260,26 +344,26 @@ public class mainWindow {
 				
 				fis.evaluate();								
 				model.setRowCount(0);			
-				model.addRow(new Object[]{"Wing Tsun", opis(fis.getVariable("wing_tsun").defuzzify()) + fis.getVariable("wing_tsun").defuzzify()});
-				model.addRow(new Object[]{"Karate", opis(fis.getVariable("karate").defuzzify()) + fis.getVariable("karate").defuzzify()});
-				model.addRow(new Object[]{"Tekvondo", opis(fis.getVariable("tekvondo").defuzzify()) + fis.getVariable("tekvondo").defuzzify()});
-				model.addRow(new Object[]{"Boks", opis(fis.getVariable("boks").defuzzify()) + fis.getVariable("boks").defuzzify()});
-				model.addRow(new Object[]{"Kikboks", opis(fis.getVariable("kikboks").defuzzify()) + fis.getVariable("kikboks").defuzzify()});
-				model.addRow(new Object[]{"Tai boks", opis(fis.getVariable("taiboks").defuzzify()) + fis.getVariable("taiboks").defuzzify()});
-				model.addRow(new Object[]{"Escrima", opis(fis.getVariable("escrima").defuzzify()) + fis.getVariable("escrima").defuzzify()});
-				model.addRow(new Object[]{"Judo", opis(fis.getVariable("judo").defuzzify()) + fis.getVariable("judo").defuzzify()});
-				model.addRow(new Object[]{"MMA", opis(fis.getVariable("mma").defuzzify()) + fis.getVariable("mma").defuzzify()});
-				model.addRow(new Object[]{"BJJ", opis(fis.getVariable("bjj").defuzzify()) + fis.getVariable("bjj").defuzzify()});
-				model.addRow(new Object[]{"Jujutsu", opis(fis.getVariable("jujutsu").defuzzify()) + fis.getVariable("jujutsu").defuzzify()});
-				model.addRow(new Object[]{"Aikido", opis(fis.getVariable("aikido").defuzzify()) + fis.getVariable("aikido").defuzzify()});
-				model.addRow(new Object[]{"Ninjutsu", opis(fis.getVariable("ninjutsu").defuzzify()) + fis.getVariable("ninjutsu").defuzzify()});
-				model.addRow(new Object[]{"Ne trenirati", opis(fis.getVariable("ne_trenirati").defuzzify()) + fis.getVariable("ne_trenirati").defuzzify()});		
+				model.addRow(new Object[]{"Wing Tsun", opis(fis.getVariable("wing_tsun").defuzzify()) + String.format("%1.2f", fis.getVariable("wing_tsun").defuzzify())  });
+				model.addRow(new Object[]{"Karate", opis(fis.getVariable("karate").defuzzify()) + String.format("%1.2f", fis.getVariable("karate").defuzzify())});
+				model.addRow(new Object[]{"Tekvondo", opis(fis.getVariable("tekvondo").defuzzify()) + String.format("%1.2f", fis.getVariable("tekvondo").defuzzify())});
+				model.addRow(new Object[]{"Boks", opis(fis.getVariable("boks").defuzzify()) + String.format("%1.2f", fis.getVariable("boks").defuzzify())});
+				model.addRow(new Object[]{"Kikboks", opis(fis.getVariable("kikboks").defuzzify()) + String.format("%1.2f", fis.getVariable("kikboks").defuzzify())});
+				model.addRow(new Object[]{"Tai boks", opis(fis.getVariable("taiboks").defuzzify()) + String.format("%1.2f", fis.getVariable("taiboks").defuzzify())});
+				model.addRow(new Object[]{"Escrima", opis(fis.getVariable("escrima").defuzzify()) + String.format("%1.2f", fis.getVariable("escrima").defuzzify())});
+				model.addRow(new Object[]{"Judo", opis(fis.getVariable("judo").defuzzify()) + String.format("%1.2f", fis.getVariable("judo").defuzzify())});
+				model.addRow(new Object[]{"MMA", opis(fis.getVariable("mma").defuzzify()) + String.format("%1.2f", fis.getVariable("mma").defuzzify())});
+				model.addRow(new Object[]{"BJJ", opis(fis.getVariable("bjj").defuzzify()) + String.format("%1.2f", fis.getVariable("bjj").defuzzify())});
+				model.addRow(new Object[]{"Jujutsu", opis(fis.getVariable("jujutsu").defuzzify()) + String.format("%1.2f", fis.getVariable("jujutsu").defuzzify())});
+				model.addRow(new Object[]{"Aikido", opis(fis.getVariable("aikido").defuzzify()) + String.format("%1.2f", fis.getVariable("aikido").defuzzify())});
+				model.addRow(new Object[]{"Ninjutsu", opis(fis.getVariable("ninjutsu").defuzzify()) + String.format("%1.2f", fis.getVariable("ninjutsu").defuzzify())});
+				model.addRow(new Object[]{"Ne trenirati", opis(fis.getVariable("ne_trenirati").defuzzify()) + String.format("%1.2f", fis.getVariable("ne_trenirati").defuzzify())});											
 				
-									
 			}
 		});
-		btnStart.setBounds(789, 58, 89, 23);
+		btnStart.setBounds(789, 32, 89, 23);
 		frmFuzzyEs.getContentPane().add(btnStart);
+		
 		
 		
 		
