@@ -9,11 +9,9 @@ import javax.swing.JSlider;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,8 +21,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.Toolkit;
 
 public class mainWindow {
 
@@ -68,6 +65,9 @@ public class mainWindow {
 	 */
 	private void initialize() {
 		frmFuzzyEs = new JFrame();
+		frmFuzzyEs.setAlwaysOnTop(true);
+		frmFuzzyEs.setIconImage(Toolkit.getDefaultToolkit().getImage(mainWindow.class.getResource("/javax/swing/plaf/metal/icons/ocean/computer.gif")));
+		frmFuzzyEs.setResizable(false);
 		frmFuzzyEs.setTitle("Fuzzy ES - Borilacke vestine - Vladimir Urosevic 2017/3730");
 		frmFuzzyEs.setBounds(100, 100, 904, 654);
 		frmFuzzyEs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -287,8 +287,7 @@ public class mainWindow {
 					case 4: lblPicture.setIcon(new ImageIcon("resources\\kikbox.jpg"));
 							break;
 					case 5: lblPicture.setIcon(new ImageIcon("resources\\mauthai.jpg"));
-							break;			
-							
+							break;										
 					case 6: lblPicture.setIcon(new ImageIcon("resources\\escrima.jpg"));
 				    		break;
 					case 7: lblPicture.setIcon(new ImageIcon("resources\\judo.jpg"));
@@ -357,7 +356,7 @@ public class mainWindow {
 				model.addRow(new Object[]{"Jujutsu", opis(fis.getVariable("jujutsu").defuzzify()) + String.format("%1.2f", fis.getVariable("jujutsu").defuzzify())});
 				model.addRow(new Object[]{"Aikido", opis(fis.getVariable("aikido").defuzzify()) + String.format("%1.2f", fis.getVariable("aikido").defuzzify())});
 				model.addRow(new Object[]{"Ninjutsu", opis(fis.getVariable("ninjutsu").defuzzify()) + String.format("%1.2f", fis.getVariable("ninjutsu").defuzzify())});
-				model.addRow(new Object[]{"Ne trenirati", opis(fis.getVariable("ne_trenirati").defuzzify()) + String.format("%1.2f", fis.getVariable("ne_trenirati").defuzzify())});											
+				model.addRow(new Object[]{"Ne trenirati b.v.", opis(fis.getVariable("ne_trenirati").defuzzify()) + String.format("%1.2f", fis.getVariable("ne_trenirati").defuzzify())});											
 				
 			}
 		});
